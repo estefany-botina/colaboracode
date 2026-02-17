@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ColaboraCode</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Configuración de Tailwind -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    },
+                    colors: {
+                        dark: {
+                            900: '#0b0f19',
+                            800: '#151b2b',
+                            700: '#1e2538',
+                            600: '#2a3449',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Estilos personalizados -->
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="font-sans antialiased">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 glass border-b border-white/5">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16 items-center">
+                <div class="flex items-center space-x-3">
+                    <div class="w-10 h-10 bg-gradient-to-br from-cyan-500 to-purple-600 rounded-xl flex items-center justify-center">
+                        <i class="fas fa-code text-white text-lg"></i>
+                    </div>
+                    <span class="text-xl font-bold bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent">ColaboraCode
+                </div>
+                
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#" class="nav-link">Preguntas</a>
+                    <a href="#" class="nav-link">Mentores</a>
+                    <a href="#" class="nav-link relative">
+                        Chat
+                        <span class="notification-dot"></span>
+                    </a>
+                </div>
+
+                <div class="flex items-center space-x-4">
+                    <button class="btn-primary">
+                        <i class="fas fa-plus"></i>
+                        <span class="hidden sm:inline">Nueva Pregunta</span>
+                    </button>
+                    
+                    <div class="user-menu">
+                        <img src="https://i.pravatar.cc/150?img=11" alt="User" class="w-8 h-8 rounded-full border-2 border-cyan-500">
+                        <span class="hidden sm:block text-sm font-medium">Alex Dev</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-bg"></div>
+        <div class="hero-glow-1"></div>
+        <div class="hero-glow-2"></div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center max-w-4xl mx-auto">
+                <div class="status-badge">
+                    <span class="pulse-dot"></span>
+                    <span class="text-sm text-cyan-300 font-medium">+500 desarrolladores activos hoy</span>
+                </div>
+                
+                <h1 class="hero-title">
+                    Resuelve tus <span class="gradient-text">bugs</span> con la ayuda de <span class="text-cyan-400">expertos</span>
+                </h1>
+                
+                <p class="hero-description">
+                    Comunidad colaborativa donde estudiantes de desarrollo conectan con mentores experimentados para resolver dudas técnicas en tiempo real.
+                </p>
+                
+                <div class="hero-buttons">
+                    <button class="btn-glow">
+                        <i class="fas fa-search"></i>
+                        <span>Explorar Preguntas</span>
+                    </button>
+                    <button class="btn-secondary">
+                        <i class="fas fa-question-circle"></i>
+                        <span>Hacer una Pregunta</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Stats -->
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number text-cyan-400">12.5K</div>
+                    <div class="stat-label">Preguntas Resueltas</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number text-purple-400">850+</div>
+                    <div class="stat-label">Mentores Expertos</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number text-green-400">98%</div>
+                    <div class="stat-label">Soluciones Verificadas</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number text-yellow-400">24/7</div>
+                    <div class="stat-label">Soporte Activo</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Recent Questions -->
+    <section class="section">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="section-header">
+                <h2 class="section-title">Actividad Reciente</h2>
+                <a href="#" class="link-arrow">
+                    <span>Ver todo</span>
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+            
+            <div class="questions-grid">
+                <!-- Question Card 1 -->
+                <article class="question-card">
+                    <div class="question-card-header">
+                        <span class="tag tag-javascript">JAVASCRIPT</span>
+                        <span class="text-xs text-gray-500">Hace 2 horas</span>
+                    </div>
+                    <h3 class="question-card-title">Error al usar async/await en bucle forEach</h3>
+                    <p class="question-card-text">Estoy intentando hacer llamadas API dentro de un forEach pero no espera a que terminen...</p>
+                    
+                    <div class="question-card-footer">
+                        <div class="author">
+                            <img src="https://i.pravatar.cc/150?img=5" class="author-avatar">
+                            <span class="author-name">María García</span>
+                        </div>
+                        <div class="question-stats">
+                            <span class="stat-item"><i class="fas fa-comment"></i><span>3</span></span>
+                            <span class="stat-item"><i class="fas fa-eye"></i><span>234</span></span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Question Card 2 -->
+                <article class="question-card">
+                    <div class="question-card-header">
+                        <span class="tag tag-python">PYTHON</span>
+                        <span class="text-xs text-gray-500">Hace 4 horas</span>
+                    </div>
+                    <h3 class="question-card-title">¿Cómo optimizar consultas N+1 en Django ORM?</h3>
+                    <p class="question-card-text">Tengo un modelo de Productos con relación a Categorías y al listar 100 productos hace 101 consultas...</p>
+                    
+                    <div class="question-card-footer">
+                        <div class="author">
+                            <img src="https://i.pravatar.cc/150?img=3" class="author-avatar">
+                            <span class="author-name">Juan Pérez</span>
+                        </div>
+                        <div class="question-stats">
+                            <span class="stat-item"><i class="fas fa-comment"></i><span>5</span></span>
+                            <span class="stat-item"><i class="fas fa-eye"></i><span>567</span></span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Question Card 3 -->
+                <article class="question-card">
+                    <div class="question-card-header">
+                        <span class="tag tag-react">REACT</span>
+                        <span class="text-xs text-gray-500">Hace 5 horas</span>
+                    </div>
+                    <h3 class="question-card-title">useEffect se ejecuta infinitamente al actualizar estado</h3>
+                    <p class="question-card-text">Cuando actualizo el estado dentro de useEffect, entra en un bucle infinito...</p>
+                    
+                    <div class="question-card-footer">
+                        <div class="author">
+                            <img src="https://i.pravatar.cc/150?img=9" class="author-avatar">
+                            <span class="author-name">Ana López</span>
+                        </div>
+                        <div class="question-stats">
+                            <span class="stat-item"><i class="fas fa-comment"></i><span>4</span></span>
+                            <span class="stat-item"><i class="fas fa-eye"></i><span>389</span></span>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Questions List View -->
+    <section class="section">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Filters -->
+            <div class="filters-bar">
+                <div class="filter-buttons">
+                    <button class="filter-btn active">Todas</button>
+                    <button class="filter-btn">JavaScript</button>
+                    <button class="filter-btn">Python</button>
+                    <button class="filter-btn">Java</button>
+                    <button class="filter-btn">React</button>
+                </div>
+                
+                <div class="filter-search">
+                    <div class="search-box">
+                        <i class="fas fa-search search-icon"></i>
+                        <input type="text" placeholder="Buscar preguntas..." class="search-input">
+                    </div>
+                    <select class="select-input">
+                        <option>Más recientes</option>
+                        <option>Más votadas</option>
+                        <option>Sin resolver</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Detailed Question 1 -->
+            <article class="question-detail">
+                <div class="vote-section">
+                    <button class="vote-btn"><i class="fas fa-chevron-up"></i></button>
+                    <span class="vote-count text-white">42</span>
+                    <button class="vote-btn"><i class="fas fa-chevron-down"></i></button>
+                    <i class="fas fa-check-circle text-green-400 text-lg" title="Resuelto"></i>
+                </div>
+                
+                <div class="question-content">
+                    <div class="question-tags">
+                        <span class="tag tag-python">PYTHON</span>
+                        <span class="topic-tag">#django</span>
+                        <span class="topic-tag">#database</span>
+                        <span class="topic-tag">#optimization</span>
+                    </div>
+                    
+                    <h3 class="question-heading">¿Cómo optimizar consultas N+1 en Django ORM?</h3>
+                    <p class="question-description">Tengo un modelo de Productos con relación a Categorías y al listar 100 productos hace 101 consultas SQL. ¿Cómo puedo optimizar esto?</p>
+                    
+                    <div class="code-block">
+                        <pre><code><span class="code-keyword">class</span> <span class="code-class">Product</span>(models.Model):
+    name = models.CharField(max_length=<span class="code-number">100</span>)
+    category = models.ForeignKey(Category, on_delete=models.CASCADE)
+
+<span class="code-comment"># Esto genera N+1 queries</span>
+products = Product.objects.all()[:<span class="code-number">100</span>]
+<span class="code-keyword">for</span> p <span class="code-keyword">in</span> products:
+    <span class="code-function">print</span>(p.category.name)  <span class="code-comment"># Query extra por cada uno</span></code></pre>
+                    </div>
+                    
+                    <div class="question-meta">
+                        <div class="author">
+                            <img src="https://i.pravatar.cc/150?img=3" class="author-avatar-md">
+                            <div>
+                                <span class="author-name">Juan Pérez</span>
+                                <span class="post-time">• Hace 4 horas</span>
+                            </div>
+                        </div>
+                        
+                        <div class="post-stats">
+                            <span class="stat-link"><i class="fas fa-comment-alt"></i><span>5 respuestas</span></span>
+                            <span class="stat-item"><i class="fas fa-eye"></i><span>567 vistas</span></span>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Detailed Question 2 -->
+            <article class="question-detail">
+                <div class="vote-section">
+                    <button class="vote-btn"><i class="fas fa-chevron-up"></i></button>
+                    <span class="vote-count text-white">15</span>
+                    <button class="vote-btn"><i class="fas fa-chevron-down"></i></button>
+                </div>
+                
+                <div class="question-content">
+                    <div class="question-tags">
+                        <span class="tag tag-javascript">JAVASCRIPT</span>
+                        <span class="topic-tag">#async</span>
+                        <span class="topic-tag">#api</span>
+                    </div>
+                    
+                    <h3 class="question-heading">Error al usar async/await en bucle forEach</h3>
+                    <p class="question-description">Estoy intentando hacer llamadas API dentro de un forEach pero no espera a que terminen antes de continuar...</p>
+                    
+                    <div class="code-block">
+                        <pre><code><span class="code-keyword">const</span> users = [<span class="code-number">1</span>, <span class="code-number">2</span>, <span class="code-number">3</span>];
+
+users.forEach(<span class="code-keyword">async</span> (id) => {
+  <span class="code-keyword">const</span> data = <span class="code-keyword">await</span> fetchUser(id);
+  console.log(data);
+});
+
+console.log(<span class="code-string">'Terminado'</span>); <span class="code-comment">// Se ejecuta antes</span></code></pre>
+                    </div>
+                    
+                    <div class="question-meta">
+                        <div class="author">
+                            <img src="https://i.pravatar.cc/150?img=5" class="author-avatar-md">
+                            <div>
+                                <span class="author-name">María García</span>
+                                <span class="post-time">• Hace 2 horas</span>
+                            </div>
+                        </div>
+                        
+                        <div class="post-stats">
+                            <span class="stat-link"><i class="fas fa-comment-alt"></i><span>3 respuestas</span></span>
+                            <span class="stat-item"><i class="fas fa-eye"></i><span>234 vistas</span></span>
+                        </div>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <!-- Mentors Section -->
+    <section class="section">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="section-title text-center">Top Mentores</h2>
+                <p class="section-subtitle">Desarrolladores experimentados con alta reputación por resolver dudas y ayudar a la comunidad</p>
+            </div>
+
+            <div class="mentors-grid">
+                <!-- Mentor 1 -->
+                <article class="mentor-card gold">
+                    <div class="mentor-gold-bg"></div>
+                    
+                    <div class="mentor-header">
+                        <div class="mentor-avatar-wrapper">
+                            <img src="https://i.pravatar.cc/150?img=33" class="mentor-avatar">
+                            <i class="fas fa-crown mentor-crown"></i>
+                        </div>
+                        <div class="mentor-info">
+                            <h3 class="mentor-name">Carlos Mendoza</h3>
+                            <p class="mentor-role">Senior Full Stack Developer</p>
+                            <div class="reputation-badge">
+                                <i class="fas fa-star"></i>
+                                <span>5,420</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <p class="mentor-bio">10+ años desarrollando aplicaciones escalables. Especialista en arquitectura de software.</p>
+                    
+                    <div class="mentor-skills">
+                        <span class="skill-tag">JavaScript</span>
+                        <span class="skill-tag">React</span>
+                        <span class="skill-tag">Node.js</span>
+                        <span class="skill-tag">Python</span>
+                    </div>
+                    
+                    <div class="mentor-footer">
+                        <div class="solutions-count">
+                            <i class="fas fa-check-circle text-green-400"></i>
+                            <span>342 soluciones</span>
+                        </div>
+                        <button class="btn-contact">Contactar</button>
+                    </div>
+                </article>
+
+                <!-- Mentor 2 -->
+                <article class="mentor-card gold">
+                    <div class="mentor-header">
+                        <div class="mentor-avatar-wrapper">
+                            <img src="https://i.pravatar.cc/150?img=47" class="mentor-avatar">
+                            <i class="fas fa-crown mentor-crown"></i>
+                        </div>
+                        <div class="mentor-info">
+                            <h3 class="mentor-name">Laura Martínez</h3>
+                            <p class="mentor-role">DevOps Engineer</p>
+                            <div class="reputation-badge">
+                                <i class="fas fa-star"></i>
+                                <span>4,890</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <p class="mentor-bio">Experta en infraestructura cloud y automatización de despliegues.</p>
+                    
+                    <div class="mentor-skills">
+                        <span class="skill-tag">Docker</span>
+                        <span class="skill-tag">Kubernetes</span>
+                        <span class="skill-tag">AWS</span>
+                    </div>
+                    
+                    <div class="mentor-footer">
+                        <div class="solutions-count">
+                            <i class="fas fa-check-circle text-green-400"></i>
+                            <span>298 soluciones</span>
+                        </div>
+                        <button class="btn-contact">Contactar</button>
+                    </div>
+                </article>
+
+                <!-- Mentor 3 -->
+                <article class="mentor-card silver">
+                    <div class="mentor-header">
+                        <div class="mentor-avatar-wrapper">
+                            <img src="https://i.pravatar.cc/150?img=60" class="mentor-avatar">
+                        </div>
+                        <div class="mentor-info">
+                            <h3 class="mentor-name">Miguel Torres</h3>
+                            <p class="mentor-role">Backend Specialist</p>
+                            <div class="reputation-badge silver-badge">
+                                <i class="fas fa-star"></i>
+                                <span>3,750</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <p class="mentor-bio">Arquitecto de software enfocado en sistemas distribuidos de alta disponibilidad.</p>
+                    
+                    <div class="mentor-skills">
+                        <span class="skill-tag">Java</span>
+                        <span class="skill-tag">Spring</span>
+                        <span class="skill-tag">SQL</span>
+                    </div>
+                    
+                    <div class="mentor-footer">
+                        <div class="solutions-count">
+                            <i class="fas fa-check-circle text-green-400"></i>
+                            <span>215 soluciones</span>
+                        </div>
+                        <button class="btn-contact">Contactar</button>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Chat Interface -->
+    <section class="section chat-section">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full">
+            <div class="chat-container">
+                <!-- Sidebar -->
+                <aside class="chat-sidebar">
+                    <div class="chat-sidebar-header">
+                        <h3 class="font-bold text-lg mb-4">Conversaciones</h3>
+                        <div class="search-box-sm">
+                            <i class="fas fa-search search-icon-sm"></i>
+                            <input type="text" placeholder="Buscar..." class="search-input-sm">
+                        </div>
+                    </div>
+                    
+                    <div class="chat-list">
+                        <!-- Active Chat -->
+                        <div class="chat-item active">
+                            <div class="chat-item-avatar">
+                                <img src="https://i.pravatar.cc/150?img=33" class="avatar-img">
+                                <span class="online-indicator"></span>
+                            </div>
+                            <div class="chat-item-content">
+                                <div class="chat-item-header">
+                                    <h4 class="chat-item-name">Carlos Mendoza</h4>
+                                    <span class="chat-item-time">2m</span>
+                                </div>
+                                <p class="chat-item-preview text-cyan-400">Prueba con useMemo...</p>
+                            </div>
+                            <span class="unread-badge">2</span>
+                        </div>
+
+                        <!-- Chat Item -->
+                        <div class="chat-item">
+                            <div class="chat-item-avatar">
+                                <img src="https://i.pravatar.cc/150?img=47" class="avatar-img">
+                            </div>
+                            <div class="chat-item-content">
+                                <div class="chat-item-header">
+                                    <h4 class="chat-item-name">Laura Martínez</h4>
+                                    <span class="chat-item-time">1h</span>
+                                </div>
+                                <p class="chat-item-preview">El Dockerfile necesita...</p>
+                            </div>
+                        </div>
+
+                        <!-- Chat Item -->
+                        <div class="chat-item">
+                            <div class="chat-item-avatar">
+                                <img src="https://i.pravatar.cc/150?img=60" class="avatar-img">
+                                <span class="online-indicator"></span>
+                            </div>
+                            <div class="chat-item-content">
+                                <div class="chat-item-header">
+                                    <h4 class="chat-item-name">Miguel Torres</h4>
+                                    <span class="chat-item-time">3h</span>
+                                </div>
+                                <p class="chat-item-preview">Revisa la configuración...</p>
+                            </div>
+                            <span class="unread-badge">1</span>
+                        </div>
+                    </div>
+                </aside>
+
+                <!-- Chat Area -->
+                <main class="chat-main">
+                    <!-- Chat Header -->
+                    <header class="chat-header">
+                        <div class="chat-header-user">
+                            <div class="user-avatar-wrapper">
+                                <img src="https://i.pravatar.cc/150?img=33" class="user-avatar">
+                                <span class="online-indicator-lg"></span>
+                            </div>
+                            <div>
+                                <h4 class="user-name">Carlos Mendoza</h4>
+                                <p class="user-status">
+                                    <span class="status-dot"></span>
+                                    <span>En línea</span>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="chat-header-actions">
+                            <button class="header-btn"><i class="fas fa-phone"></i></button>
+                            <button class="header-btn"><i class="fas fa-video"></i></button>
+                            <button class="header-btn"><i class="fas fa-ellipsis-v"></i></button>
+                        </div>
+                    </header>
+
+                    <!-- Messages -->
+                    <div class="messages-container">
+                        <!-- Received -->
+                        <div class="message received">
+                            <div class="message-bubble received-bubble">
+                                <p class="message-text">¡Hola! Claro, cuéntame qué está pasando exactamente</p>
+                                <span class="message-time">10:32 AM</span>
+                            </div>
+                        </div>
+
+                        <!-- Sent -->
+                        <div class="message sent">
+                            <div class="message-bubble sent-bubble">
+                                <p class="message-text">Se está ejecutando en bucle infinito cuando actualizo el estado</p>
+                                <span class="message-time">10:33 AM</span>
+                            </div>
+                        </div>
+
+                        <!-- Sent with Code -->
+                        <div class="message sent">
+                            <div class="message-bubble sent-bubble code-message">
+                                <div class="code-preview">
+                                    <pre><code>useEffect(() => {
+  fetchData().then(setData);
+}, [data]);</code></pre>
+                                </div>
+                                <span class="message-time">10:33 AM</span>
+                            </div>
+                        </div>
+
+                        <!-- Received with Code -->
+                        <div class="message received">
+                            <div class="message-bubble received-bubble code-message">
+                                <p class="message-text">Veo el problema. Prueba así:</p>
+                                <div class="code-preview dark">
+                                    <pre><code>useEffect(() => {
+  fetchData().then(setData);
+}, []); // Array vacío</code></pre>
+                                </div>
+                                <span class="message-time">10:35 AM</span>
+                            </div>
+                        </div>
+
+                        <!-- Solved Message -->
+                        <div class="message sent">
+                            <div class="message-bubble sent-bubble">
+                                <p class="message-text">¡Funcionó perfecto! Muchas gracias</p>
+                                <div class="solution-badge">
+                                    <i class="fas fa-check-circle"></i>
+                                    <span>Solución verificada +50 pts</span>
+                                </div>
+                                <span class="message-time">10:40 AM</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Input Area -->
+                    <div class="chat-input-area">
+                        <button class="attach-btn"><i class="fas fa-paperclip"></i></button>
+                        <div class="input-wrapper">
+                            <textarea rows="1" placeholder="Escribe un mensaje..." class="message-input"></textarea>
+                            <div class="input-actions">
+                                <button class="code-btn"><i class="fas fa-code"></i>Código</button>
+                                <span class="input-hint">Shift + Enter para nueva línea</span>
+                            </div>
+                        </div>
+                        <button class="send-btn"><i class="fas fa-paper-plane"></i></button>
+                    </div>
+                </main>
+            </div>
+        </div>
+    </section>
+
+    <!-- New Question Modal -->
+    <div class="modal" id="newQuestionModal">
+        <div class="modal-backdrop"></div>
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title">Nueva Pregunta</h3>
+                <button class="modal-close">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            
+            <div class="modal-body">
+                <div class="form-group">
+                    <label class="form-label">Título de tu pregunta</label>
+                    <input type="text" placeholder="Ej: ¿Cómo manejar estados en React con useEffect?" class="form-input">
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label class="form-label">Lenguaje/Framework</label>
+                        <select class="form-select">
+                            <option>JavaScript</option>
+                            <option>Python</option>
+                            <option>Java</option>
+                            <option>React</option>
+                            <option>Vue.js</option>
+                            <option>Angular</option>
+                            <option>Node.js</option>
+                            <option>SQL</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Nivel de dificultad</label>
+                        <select class="form-select">
+                            <option>Principiante</option>
+                            <option>Intermedio</option>
+                            <option>Avanzado</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label">Descripción detallada</label>
+                    <textarea rows="4" placeholder="Describe tu problema con detalle..." class="form-textarea"></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label">Código (opcional)</label>
+                    <div class="code-input-wrapper">
+                        <button class="format-btn"><i class="fas fa-magic"></i>Formatear</button>
+                        <textarea rows="6" placeholder="// Pega tu código aqui..." class="form-textarea code-textarea"></textarea>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="modal-footer">
+                <div class="form-hint">
+                    <i class="fas fa-info-circle"></i>
+                    <span>Sé específico para mejores respuestas</span>
+                </div>
+                <div class="modal-actions">
+                    <button class="btn-cancel">Cancelar</button>
+                    <button class="btn-submit">Publicar Pregunta</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
